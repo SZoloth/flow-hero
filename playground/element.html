@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>flow-hero element and script tag</title>
+<style>
+  body { margin: 0; background: #111; color: #fff; font: 16px/1.4 ui-sans-serif, system-ui, sans-serif; display: grid; gap: 2px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  flow-hero { height: 50vh; display: grid; place-items: center; }
+  code { background: rgb(0 0 0 / 0.4); padding: 4px 8px; border-radius: 6px; }
+</style>
+<script src="../dist/flow-hero.iife.js"></script>
+</head>
+<body>
+  <flow-hero id="a" preset="aurora"><code>preset="aurora"</code></flow-hero>
+  <flow-hero id="b" preset="ink-on-paper"><code style="color:#000;background:rgb(255 255 255 / 0.5)">preset="ink-on-paper"</code></flow-hero>
+  <flow-hero id="c" src="./sample-patch.json"><code>src="./sample-patch.json"</code></flow-hero>
+  <flow-hero id="d" preset="candy" patch='{"ink":{"color":"#ff4f9a","blend":"add"},"idle":{"mode":"always"}}'><code>preset + patch attribute</code></flow-hero>
+</body>
+</html>

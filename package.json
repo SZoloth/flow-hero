@@ -1,0 +1,83 @@
+{
+  "name": "flow-hero",
+  "version": "0.1.0",
+  "description": "A pointer-reactive smoke-and-gradient hero for any site, configured by a small JSON patch. Zero dependencies, WebGL2.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "./dist/element.js",
+    "./dist/flow-hero.iife.js"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "unpkg": "./dist/flow-hero.iife.js",
+  "jsdelivr": "./dist/flow-hero.iife.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./element": {
+      "types": "./dist/types/element.d.ts",
+      "import": "./dist/element.js"
+    },
+    "./react": {
+      "types": "./dist/types/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./iife": "./dist/flow-hero.iife.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "webgl",
+    "hero",
+    "smoke",
+    "gradient",
+    "shader",
+    "web-component",
+    "react"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs && tsc -p tsconfig.build.json",
+    "dev": "node scripts/dev.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "size": "node scripts/size.mjs",
+    "settings-table": "node scripts/settings-table.mjs --write",
+    "site": "node scripts/site.mjs",
+    "prepublishOnly": "pnpm test && pnpm build && pnpm size"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "esbuild": "^0.28.2",
+    "react": "^18.3.1",
+    "typescript": "^5.6.3",
+    "vitest": "^5.1.0"
+  },
+  "packageManager": "pnpm@11.13.1",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SZoloth/flow-hero.git"
+  },
+  "homepage": "https://szoloth.github.io/flow-hero/",
+  "bugs": {
+    "url": "https://github.com/SZoloth/flow-hero/issues"
+  }
+}
