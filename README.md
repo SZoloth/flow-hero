@@ -42,7 +42,7 @@ Give the container a height. flow-hero does not style your content, so set a tex
 ### Script tag
 
 ```html
-<script src="https://unpkg.com/flow-hero@0.2.0/dist/flow-hero.iife.js"></script>
+<script src="https://unpkg.com/flow-hero@0.3.0/dist/flow-hero.iife.js"></script>
 
 <flow-hero preset="ember" style="height: 100vh; color: white">
   <h1>Your headline</h1>
@@ -80,7 +80,7 @@ export function Hero() {
 }
 ```
 
-React is an optional peer dependency used only by `flow-hero/react`. The component renders a `div`, so `className`, `style` and `children` work as usual. It runs in the browser only; the built file carries a `'use client'` directive for frameworks with server components. Two more props: `options`, passed to `createFlowHero`, and `onReady`, called once with the engine so you can call `pause()` or `resume()`.
+React is an optional peer dependency used only by `flow-hero/react`. The component renders a `div`, or the tag you pass as `as` (`section`, `header`, `main`, `article`, `aside`, `footer`) so an existing hero keeps its semantics, and `id`, `className`, `style` and `children` work as usual. The rendered element carries the engine as `.hero`, like the web component. It runs in the browser only; the built file carries a `'use client'` directive for frameworks with server components. Two more props: `options`, passed to `createFlowHero`, and `onReady`, called once with the engine so you can call `pause()` or `resume()`.
 
 ### JavaScript API
 

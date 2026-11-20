@@ -6,7 +6,7 @@
     "dev": "next dev"
   },
   "dependencies": {
-    "flow-hero": "^0.2.0",
+    "flow-hero": "^0.3.0",
     "next": "15.5.29",
     "react": "19.3.1",
     "react-dom": "19.3.1"

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://szoloth.github.io/flow-hero/schema.json",
   "title": "flow-hero patch",
-  "description": "Settings for a flow-hero background (flow-hero 0.2.0). Every key is optional: missing keys come from the preset or the default, out-of-range numbers are clamped, and unknown keys are dropped.",
+  "description": "Settings for a flow-hero background (flow-hero 0.3.0). Every key is optional: missing keys come from the preset or the default, out-of-range numbers are clamped, and unknown keys are dropped.",
   "type": "object",
   "additionalProperties": false,
   "properties": {

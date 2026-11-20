@@ -1,6 +1,6 @@
 {
   "name": "flow-hero",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A pointer-reactive smoke-and-gradient hero for any site, configured by a small JSON patch. Zero dependencies, WebGL2.",
   "license": "MIT",
   "type": "module",
@@ -67,9 +67,11 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
+    "@types/react-dom": "18.3.1",
     "dialkit": "2.1.0",
     "esbuild": "^0.28.2",
     "react": "^18.3.1",
+    "react-dom": "18.3.1",
     "typescript": "^5.6.3",
     "vitest": "^5.1.0"
   },
