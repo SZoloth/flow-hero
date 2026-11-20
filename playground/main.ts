@@ -2,6 +2,7 @@ import { createDialKit, createDialRoot } from 'dialkit/vanilla';
 import 'dialkit/styles.css';
 import * as FH from '../src/index';
 import type { FlowPatch } from '../src/index';
+import { addPanelChrome } from './chrome';
 import { CUSTOM, dialConfig, patchToValues, valuesToPatch, type DialValues } from './dials';
 import { MACROS, nudgeMacro } from './macros';
 import { randomPatch } from './random';
@@ -40,15 +41,14 @@ async function copy(text: string, what: string): Promise<void> {
   toastTimer = window.setTimeout(() => delete toast.dataset.show, 1600);
 }
 
-const kit = createDialKit('flow-hero', dialConfig(patch) as never, {
-  onAction(action) {
-    if (action === 'random') apply(randomPatch());
-    else if (action === 'copyJson') void copy(JSON.stringify(patch, null, 2), 'patch JSON');
-    else if (action === 'copyHtml') void copy(htmlSnippet(patch), 'HTML snippet');
-    else if (action === 'copyReact') void copy(reactSnippet(patch), 'React snippet');
-  },
-});
+const kit = createDialKit('flow-hero', dialConfig(patch) as never);
 const root = params.has('bare') ? undefined : createDialRoot({ position: 'top-right', defaultOpen: matchMedia('(min-width: 721px)').matches, theme: 'dark' });
+if (root)
+  addPanelChrome(root.element, () => apply(randomPatch()), [
+    { label: 'Patch JSON', run: () => void copy(JSON.stringify(patch, null, 2), 'patch JSON') },
+    { label: 'HTML', run: () => void copy(htmlSnippet(patch), 'HTML snippet') },
+    { label: 'React', run: () => void copy(reactSnippet(patch), 'React snippet') },
+  ]);
 
 let shown: DialValues = patchToValues(patch);
 let hashTimer = 0;

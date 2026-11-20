@@ -45,10 +45,6 @@ export function dialConfig(patch: FlowPatch): Record<string, unknown> {
         break;
     }
   }
-  config.random = { type: 'action', label: 'Random look' };
-  config.copyJson = { type: 'action', label: 'Copy patch JSON' };
-  config.copyHtml = { type: 'action', label: 'Copy HTML' };
-  config.copyReact = { type: 'action', label: 'Copy React' };
   return config;
 }
 

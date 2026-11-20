@@ -148,9 +148,9 @@ A patch is a plain object. `parsePatch(input, base?)` turns untrusted input into
 ## Make your own patch
 
 1. Open the [playground](https://szoloth.github.io/flow-hero/), or clone this repo and run `pnpm install && pnpm dev`.
-2. Pick a preset or press Random look. Shape it with the three Feel sliders: Energy (how far ink travels and how fast the smoke churns), Texture (soft glow to torn, grainy smoke) and Brush (thin wisps to broad clouds). Each one moves several settings together and keeps the rest of the look. The folders below hold every individual setting.
+2. Pick a preset, or press the shuffle button beside it for a random look. Shape it with the three Feel sliders: Energy (how far ink travels and how fast the smoke churns), Texture (soft glow to torn, grainy smoke) and Brush (thin wisps to broad clouds). Each one moves several settings together and keeps the rest of the look. The folders below hold every individual setting.
 3. The page URL updates as you go, so the address bar is a share link. Save version keeps looks to compare side by side.
-4. Press Copy patch JSON, Copy HTML or Copy React to take the patch in the form you need.
+4. Press Copy at the top of the panel and choose Patch JSON, HTML or React to take the patch in the form you need.
 
 A patch can be partial. `{"ink": {"color": "#00e0ff"}}` layered over a preset changes only the ink colour. Light backgrounds need `"blend": "multiply"` so the ink darkens instead of glowing.
 
