@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
+    "dialkit": "2.1.0",
     "esbuild": "^0.28.2",
     "react": "^18.3.1",
     "typescript": "^5.6.3",

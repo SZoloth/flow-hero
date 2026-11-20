@@ -147,9 +147,10 @@ A patch is a plain object. `parsePatch(input, base?)` turns untrusted input into
 
 ## Make your own patch
 
-1. Clone this repo and run `pnpm install && pnpm dev`, then open the URL it prints.
-2. Pick a preset or press Random, then adjust the sliders. The page URL updates as you change settings, so you can copy it from the address bar to come back to a look or share it with someone running the playground.
-3. Press Patch JSON, HTML or React under Copy to take the patch in the form you need.
+1. Open the [playground](https://szoloth.github.io/flow-hero/), or clone this repo and run `pnpm install && pnpm dev`.
+2. Pick a preset or press Random look. Shape it with the three Feel sliders: Energy (how far ink travels and how fast the smoke churns), Texture (soft glow to torn, grainy smoke) and Brush (thin wisps to broad clouds). Each one moves several settings together and keeps the rest of the look. The folders below hold every individual setting.
+3. The page URL updates as you go, so the address bar is a share link. Save version keeps looks to compare side by side.
+4. Press Copy patch JSON, Copy HTML or Copy React to take the patch in the form you need.
 
 A patch can be partial. `{"ink": {"color": "#00e0ff"}}` layered over a preset changes only the ink colour. Light backgrounds need `"blend": "multiply"` so the ink darkens instead of glowing.
 
@@ -182,7 +183,7 @@ pnpm settings-table  # regenerate the settings table in this README
 
 ## Credit
 
-Inspired by the hero on [onlook.com](https://www.onlook.com/), which is built with [Unicorn Studio](https://www.unicorn.studio/). flow-hero is an independent implementation written from a description of how that effect behaves ([docs/TEARDOWN.md](https://raw.githubusercontent.com/SZoloth/flow-hero/main/docs/TEARDOWN.md)). It contains no code from Onlook or Unicorn Studio. The turbulence uses domain warping as described in Inigo Quilez's article [warp](https://iquilezles.org/articles/warp/), and colours are mixed in Björn Ottosson's OKLab space. The packaging was inspired by [stackedlol/ascii-sharks](https://github.com/stackedlol/ascii-sharks).
+Inspired by the hero on [onlook.com](https://www.onlook.com/), which is built with [Unicorn Studio](https://www.unicorn.studio/). flow-hero is an independent implementation written from a description of how that effect behaves ([docs/TEARDOWN.md](https://raw.githubusercontent.com/SZoloth/flow-hero/main/docs/TEARDOWN.md)). It contains no code from Onlook or Unicorn Studio. The turbulence uses domain warping as described in Inigo Quilez's article [warp](https://iquilezles.org/articles/warp/), and colours are mixed in Björn Ottosson's OKLab space. The packaging was inspired by [stackedlol/ascii-sharks](https://github.com/stackedlol/ascii-sharks). The playground's control panel is Josh Puckett's [DialKit](https://github.com/joshpuckett/dialkit) (MIT); the published package does not include it.
 
 ## License
 
