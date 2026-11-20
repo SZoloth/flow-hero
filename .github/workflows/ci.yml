@@ -28,5 +28,6 @@ jobs:
       - name: Build the Next.js example against the packed package
         working-directory: examples/next
         run: |
-          pnpm add "../../flow-hero-$(node -p "require('../../package.json').version").tgz" --ignore-workspace
+          node -e "const f='package.json',p=require('./'+f),v=require('../../package.json').version;p.dependencies['flow-hero']='file:../../flow-hero-'+v+'.tgz';require('fs').writeFileSync(f,JSON.stringify(p,null,2))"
+          pnpm install --ignore-workspace
           pnpm build
