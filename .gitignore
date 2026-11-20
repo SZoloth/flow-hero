@@ -4,3 +4,8 @@ playground/build
 *.log
 .DS_Store
 site/
+examples/*/node_modules/
+examples/*/.next/
+examples/*/next-env.d.ts
+examples/*/pnpm-lock.yaml
+*.tgz

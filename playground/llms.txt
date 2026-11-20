@@ -1,0 +1,12 @@
+# flow-hero
+
+> Pointer-following smoke over a gradient for a website's hero section. WebGL2, zero runtime dependencies, about 10 KB gzipped, MIT. One JSON "patch" sets the whole look.
+
+To add it to a site, follow the agent skill: https://szoloth.github.io/flow-hero/skill.md
+
+- [README](https://github.com/SZoloth/flow-hero#readme): install, script tag, web component, React, API, settings, accessibility, performance
+- [Patch JSON Schema](https://szoloth.github.io/flow-hero/schema.json): every setting with its range, default and meaning
+- [Agent skill](https://szoloth.github.io/flow-hero/skill.md): pick the integration from the project, wire it in, match the site's colours, check it
+- [Playground](https://szoloth.github.io/flow-hero/): pick a preset, tune it, copy the patch
+- [npm](https://www.npmjs.com/package/flow-hero): `pnpm add flow-hero`; entries `flow-hero`, `flow-hero/element`, `flow-hero/react`, `flow-hero/iife`
+- [Next.js example](https://github.com/SZoloth/flow-hero/tree/main/examples/next) and [plain HTML example](https://github.com/SZoloth/flow-hero/tree/main/examples/html)

@@ -1,6 +1,6 @@
 {
   "name": "flow-hero",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A pointer-reactive smoke-and-gradient hero for any site, configured by a small JSON patch. Zero dependencies, WebGL2.",
   "license": "MIT",
   "type": "module",
@@ -27,10 +27,13 @@
       "import": "./dist/react.js"
     },
     "./iife": "./dist/flow-hero.iife.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./schema.json": "./schema.json"
   },
   "files": [
     "dist",
+    "schema.json",
+    "skills",
     "README.md",
     "LICENSE"
   ],
@@ -51,7 +54,8 @@
     "size": "node scripts/size.mjs",
     "settings-table": "node scripts/settings-table.mjs --write",
     "site": "node scripts/site.mjs",
-    "prepublishOnly": "pnpm test && pnpm build && pnpm size"
+    "prepublishOnly": "pnpm test && pnpm build && pnpm size",
+    "schema": "node scripts/schema.mjs"
   },
   "peerDependencies": {
     "react": ">=17"

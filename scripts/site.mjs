@@ -15,3 +15,7 @@ await build({
 });
 
 cpSync('playground/index.html', 'site/index.html');
+cpSync('playground/og.png', 'site/og.png');
+cpSync('playground/llms.txt', 'site/llms.txt');
+cpSync('schema.json', 'site/schema.json');
+cpSync('skills/flow-hero/SKILL.md', 'site/skill.md');

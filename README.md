@@ -21,6 +21,18 @@ pnpm add flow-hero
 
 npm and yarn work too. For a plain HTML page, load the script from a CDN instead.
 
+## Use it with a coding agent
+
+Paste this to Claude Code, Codex, Cursor or any agent working in your site's repo:
+
+```text
+Add flow-hero to this site's hero section. Follow https://szoloth.github.io/flow-hero/skill.md
+```
+
+The skill tells the agent how to pick the right integration for your framework, keep your existing hero content, match your colours using the [patch schema](https://szoloth.github.io/flow-hero/schema.json), and check the result. To keep it with your project, copy [`skills/flow-hero/SKILL.md`](skills/flow-hero/SKILL.md) into your agent's skills folder (for Claude Code, `.claude/skills/flow-hero/SKILL.md`). It also ships in the npm package at `node_modules/flow-hero/skills/flow-hero/SKILL.md`, next to `schema.json`.
+
+Working examples: [Next.js App Router](examples/next) and [plain HTML](examples/html). CI builds the Next.js example against the packed package on every change.
+
 ## Usage
 
 The hero fills its container and sits behind the container's children. The canvas ignores pointer events, so the text and buttons on top stay clickable, and the hero listens for pointer movement on the whole window instead.
@@ -179,6 +191,8 @@ pnpm test            # patch parsing, presets, Random, snippets, safety, server 
 pnpm build           # dist/ ESM entries, IIFE and type declarations
 pnpm size            # minified and gzipped sizes; fails if the core exceeds 15 KB gzipped
 pnpm settings-table  # regenerate the settings table in this README
+pnpm schema          # regenerate schema.json from the settings registry
+pnpm site            # build the playground site into site/
 ```
 
 ## Credit

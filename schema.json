@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://szoloth.github.io/flow-hero/schema.json",
+  "title": "flow-hero patch",
+  "description": "Settings for a flow-hero background (flow-hero 0.2.0). Every key is optional: missing keys come from the preset or the default, out-of-range numbers are clamped, and unknown keys are dropped.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "title": "Name",
+      "description": "A label for the look. Not used for rendering.",
+      "default": "ember",
+      "type": "string",
+      "maxLength": 64
+    },
+    "background": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "colors": {
+          "title": "Colours",
+          "description": "Two to four gradient stops, blended in OKLab.",
+          "default": [
+            "#151515",
+            "#000000",
+            "#000000"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+          },
+          "minItems": 2,
+          "maxItems": 4
+        },
+        "angle": {
+          "title": "Angle",
+          "description": "Gradient direction in CSS degrees (0 points up, 90 points right).",
+          "default": 135,
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 360
+        },
+        "motion": {
+          "title": "Motion",
+          "description": "How far the stops drift back and forth over time.",
+          "default": 0.05,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "ink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "title": "Colour",
+          "description": "The accent colour of the trail.",
+          "default": "#f50032",
+          "type": "string",
+          "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+        },
+        "hueShift": {
+          "title": "Hue shift",
+          "description": "How far the ink hue swings away from the accent. Stroke direction varies the swing. 0 is pure accent.",
+          "default": 0.22,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "intensity": {
+          "title": "Intensity",
+          "description": "Brightness (or darkness, for multiply) of the ink.",
+          "default": 0.8,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "size": {
+          "title": "Brush size",
+          "description": "Largest brush radius, as a fraction of the short side. Fast strokes reach it.",
+          "default": 0.24,
+          "type": "number",
+          "minimum": 0.02,
+          "maximum": 0.5
+        },
+        "lifetime": {
+          "title": "Lifetime",
+          "description": "Seconds until a trail is about gone. Time-based, so 60 Hz and 120 Hz match.",
+          "default": 1.2,
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 8
+        },
+        "drift": {
+          "title": "Drift",
+          "description": "How far ink keeps travelling along its stroke direction.",
+          "default": 0.45,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "spread": {
+          "title": "Spread",
+          "description": "How quickly ink blurs outward.",
+          "default": 0.65,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "blend": {
+          "title": "Blend",
+          "description": "add glows on dark, screen glows softly, multiply darkens light backgrounds.",
+          "default": "add",
+          "type": "string",
+          "enum": [
+            "add",
+            "screen",
+            "multiply"
+          ]
+        }
+      }
+    },
+    "warp": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "Strength of the turbulence the image is resampled through. This is what makes smoke billow.",
+          "default": 0.31,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "scale": {
+          "title": "Scale",
+          "description": "Size of the turbulence. Higher is finer.",
+          "default": 1.2,
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 6
+        },
+        "speed": {
+          "title": "Speed",
+          "description": "How fast the turbulence field drifts and evolves.",
+          "default": 0.08,
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "detail": {
+          "title": "Detail",
+          "description": "Noise octaves. Fewer is cheaper and smoother.",
+          "default": 6,
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 6
+        }
+      }
+    },
+    "grain": {
+      "title": "Grain",
+      "description": "Film grain. A little stops banding on dark gradients.",
+      "default": 0.06,
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "idle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "title": "Wanderer",
+          "description": "off never draws on its own. attract draws until the visitor first moves the pointer, and comes back after a pause only on touch devices. always draws after every pause.",
+          "default": "attract",
+          "type": "string",
+          "enum": [
+            "off",
+            "attract",
+            "always"
+          ]
+        },
+        "speed": {
+          "title": "Speed",
+          "description": "How fast the wanderer moves.",
+          "default": 0.5,
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 2
+        },
+        "size": {
+          "title": "Size",
+          "description": "Wanderer brush size relative to Brush size.",
+          "default": 0.7,
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 2
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resolution": {
+          "title": "Resolution",
+          "description": "Render scale for the warp pass. The ink simulation runs at half of this.",
+          "default": 0.75,
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 1
+        },
+        "maxDpr": {
+          "title": "Max DPR",
+          "description": "Caps device pixel ratio so large retina screens stay cheap.",
+          "default": 1.5,
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 3
+        }
+      }
+    }
+  }
+}
