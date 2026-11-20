@@ -199,6 +199,10 @@ pnpm site            # build the playground site into site/
 
 Inspired by the hero on [onlook.com](https://www.onlook.com/), which is built with [Unicorn Studio](https://www.unicorn.studio/). flow-hero is an independent implementation written from a description of how that effect behaves ([docs/TEARDOWN.md](https://raw.githubusercontent.com/SZoloth/flow-hero/main/docs/TEARDOWN.md)). It contains no code from Onlook or Unicorn Studio. The turbulence uses domain warping as described in Inigo Quilez's article [warp](https://iquilezles.org/articles/warp/), and colours are mixed in Björn Ottosson's OKLab space. The packaging was inspired by [stackedlol/ascii-sharks](https://github.com/stackedlol/ascii-sharks). The playground's control panel is Josh Puckett's [DialKit](https://github.com/joshpuckett/dialkit) (MIT); the published package does not include it.
 
+## Roadmap
+
+Cloud and water materials and dynamic colour are next. See [ROADMAP.md](ROADMAP.md).
+
 ## License
 
 [MIT](LICENSE)
