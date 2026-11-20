@@ -42,7 +42,7 @@ Give the container a height. flow-hero does not style your content, so set a tex
 ### Script tag
 
 ```html
-<script src="https://unpkg.com/flow-hero@0.1.0/dist/flow-hero.iife.js"></script>
+<script src="https://unpkg.com/flow-hero@0.2.0/dist/flow-hero.iife.js"></script>
 
 <flow-hero preset="ember" style="height: 100vh; color: white">
   <h1>Your headline</h1>

@@ -13,9 +13,9 @@ flow-hero draws a gradient with smoke that follows the pointer, behind a contain
 | --- | --- |
 | React or Next.js (`react` in package.json) | `pnpm add flow-hero` (or the project's package manager), then wrap the hero in `<FlowHero>` from `flow-hero/react`. The built file already carries `'use client'`, so it works inside a Next.js server component page. |
 | Vue, Svelte, Astro, Solid or another bundler | Install, then `import 'flow-hero/element'` once in client code and use `<flow-hero>` in markup. |
-| Plain HTML, no bundler | `<script src="https://unpkg.com/flow-hero@0/dist/flow-hero.iife.js"></script>` and `<flow-hero>`. |
+| Plain HTML, no bundler | `<script src="https://unpkg.com/flow-hero@0.2.0/dist/flow-hero.iife.js" defer></script>` and `<flow-hero>`. Pin the exact version, as here, so a new release never changes the live site without an edit. |
 
-Use the hero section that already exists. Don't add a new one or move its content.
+Use the hero section that already exists. Don't add a new one or move its content. Turn its outer element into the flow-hero container: in React, replace the outer tag with `<FlowHero>` and move its `className`, `id` and `style` onto it; in HTML, change the outer tag to `<flow-hero>` and keep every attribute. Keep an `id` that anchor links use. If the outer element is a landmark (`<header>`, or a `<section>` with an `aria-label`), keep it and put `<flow-hero>` inside it instead, sized to fill it.
 
 ## 2. Wire it in
 
@@ -55,7 +55,11 @@ Start from the closest preset, then layer a partial patch. Read the site's own c
 | Light, paper, off-white | `ink-on-paper` | `background.colors` to the light tones, `ink.color` to the text or brand colour. Keep `ink.blend: "multiply"`; `add` glows invisibly on light backgrounds. |
 | Bright, pastel, playful | `candy` | `background.colors` to the palette |
 
+When `ink.color` is a brand colour, lower `ink.hueShift` to about 0.1, or the stroke-direction hue swing drifts the smoke off-brand (aurora's default is 0.35).
+
 Example partial patch: `{"background":{"colors":["#0b1020","#05070f"]},"ink":{"color":"#7c5cff"}}`. Colours must be `#rgb` or `#rrggbb` hex; other formats are ignored. Pass it as `patch={…}` in React or `patch='…'` on the element. Validate against the schema if you generate it.
+
+Accessibility is handled for you: the canvas is `aria-hidden` and ignores the pointer, and with `prefers-reduced-motion: reduce` the hero renders one still frame. Don't add your own motion guards around it.
 
 Defaults you usually leave alone: `idle.mode: "attract"` (draws a little smoke before the visitor moves, and on phones), `quality.*` (already capped for large screens).
 
@@ -63,7 +67,7 @@ Defaults you usually leave alone: `idle.mode: "attract"` (draws a little smoke b
 
 1. Build the project as it normally builds (for Next.js, `next build`; it must not error about `window` or `customElements`).
 2. Open the page in a browser with a real GPU. In the console, the hero element's engine reports its state: for `<flow-hero>`, `document.querySelector('flow-hero').hero.status`; for React, use the `onReady` prop. `status.mode` should be `"webgl"`. `"fallback"` means no WebGL2 or a software renderer (headless browsers often use one); the page then shows a static CSS gradient of the background colours, which is the intended fallback, not a bug.
-3. Move the pointer over the hero: smoke should follow and fade within about a second.
+3. Move the pointer over the hero: smoke should follow and fade within about a second. Scripted browsers jump the mouse between points and leave little trail; to test from a script, drive the engine directly: `const h = document.querySelector('flow-hero').hero; h.pause(); for (let i = 0; i < 40; i++) { h.pointer(100 + i * 12, 200 + i * 4); h.step(1 / 60); } h.lift();` then screenshot.
 4. Check the headline contrast, and check the page at phone width.
 
 ## When something's off

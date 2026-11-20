@@ -1,6 +1,7 @@
+import pkg from '../package.json';
 import { DEFAULT_PATCH, PRESETS, PRESET_NAMES, type FlowPatch } from '../src/index';
 
-const CDN = 'https://unpkg.com/flow-hero@0.1.0/dist/flow-hero.iife.js';
+const CDN = `https://unpkg.com/flow-hero@${pkg.version}/dist/flow-hero.iife.js`;
 
 const textColor = (patch: FlowPatch): string => {
   const avg = patch.background.colors.reduce((sum, c) => sum + parseInt(c.slice(1, 3), 16) + parseInt(c.slice(3, 5), 16) + parseInt(c.slice(5, 7), 16), 0) / (patch.background.colors.length * 765);
